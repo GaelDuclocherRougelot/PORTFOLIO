@@ -1,7 +1,52 @@
+@import '../../Ui.module.scss';
+
 .banner__section {
   width: 100vw;
   height: 100vh;
-  background: url("../Banner/../../assets/portfolio_bg.webp");
+  padding: 0vw 10vw 0vw 10vw;
+  background: #1a1a1a;
+  background-image: url('../../assets/portfolio_bg.webp');
   background-position: center top;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: default;
+
+  img {
+    width: 25vw;
+    box-shadow: 0px -5px 20px $color-blue,0px 0px 2px $color-blue;
+    border-radius: 50%;
+  }
+
+  .title__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+
+    h1, h2, h3{
+      color: white;
+      font-family: $font-raleway;
+      font-weight: 700;
+      font-size: 4vw;
+      line-height: 4vw;
+      letter-spacing: -.2rem;
+    }
+
+    h3 {
+      font-size: 2vw;
+    }
+
+    .js__span {
+      color: $color-javascript;
+      text-shadow:0px 0px 15px $color-javascript,0px 0px 2px $color-javascript;
+      transition: ease 0.5s;
+
+      &:hover {
+        color: $color-blue;
+        text-shadow:0px 0px 15px $color-blue,0px 0px 2px $color-blue;
+      }
+    }
+  };
 }
