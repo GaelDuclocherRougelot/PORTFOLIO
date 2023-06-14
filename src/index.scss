@@ -1,0 +1,73 @@
+@import "./Ui.module.scss";
+
+html,
+body,
+#root {
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  cursor: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ----------------------- custom global styles ---------------------- */
+
+h1,
+h2,
+h3 {
+  color: white;
+  font-family: $font-raleway;
+  font-weight: 700;
+  font-size: 4vw;
+  line-height: 4vw;
+  letter-spacing: -0.2rem;
+}
+
+/* ----------------------- Custom cursor style ---------------------- */
+
+.cursor {
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: black;
+  mix-blend-mode: difference;
+  background-color: white;
+}
