@@ -12,16 +12,19 @@
   justify-content: space-around;
   align-items: center;
   
-  img {
+  .profile__img {
     z-index: 3;
     width: 30vw;
     border: 20px solid $color-javascript;
     border-radius: 50%;
     box-shadow: inset 0px 0px 30px $color-javascript, 0px 0px 20px $color-javascript;
+  }
 
-    &:hover {
-      background-color: $color-javascript;
-    }
+  .down__arrow {
+    width: 4vw;
+    position: absolute;
+    bottom: 100px;
+    z-index: 99;
   }
 
   .title__container {
@@ -48,11 +51,6 @@
       color: $color-javascript;
       text-shadow: 0px 0px 15px $color-javascript, 0px 0px 2px $color-javascript;
       transition: ease 0.5s;
-
-      &:hover {
-        color: $color-blue;
-        text-shadow: 0px 0px 15px $color-blue, 0px 0px 2px $color-blue;
-      }
     }
   }
 }

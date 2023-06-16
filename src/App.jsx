@@ -5,36 +5,54 @@ import Banner from "./components/Banner/Banner";
 import Projects from "./components/Projects/Projects";
 
 function App() {
-  const [cursorXY, setCursorXY] = useState({ x: -100, y: -100 });
+  const [cursorVariant, setCursorVariant] = useState("default");
+
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 700 };
+  const springConfig = { damping: 100, stiffness: 800 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
     const moveCursor = (e) => {
-      const x = e.clientX - 16;
-      const y = e.clientY - 16;
-      setCursorXY({ x, y });
+      cursorX.set(e.clientX - 25);
+      cursorY.set(e.clientY - 25);
     };
+
     window.addEventListener("mousemove", moveCursor);
     return () => {
       window.removeEventListener("mousemove", moveCursor);
     };
-  }, []);
+  }, [cursorX, cursorY]);
+
+  const variants = {
+    default: {
+      width: 50,
+      height: 50,
+    },
+    text: {
+      width: 150,
+      height: 150,
+    },
+  };
+
+  const textEnter = () => setCursorVariant("text");
+  const textLeave = () => setCursorVariant("default");
 
   return (
     <>
       <motion.div
         className="cursor"
+        variants={variants}
+        animate={cursorVariant}
         style={{
-          transform: `translate3d(${cursorXY.x}px, ${cursorXY.y}px, 0)`,
+          translateX: cursorXSpring,
+          translateY: cursorYSpring,
         }}
       />
       <Banner />
-      <Projects />
+      <Projects textEnter={textEnter} textLeave={textLeave} />
     </>
   );
 }
