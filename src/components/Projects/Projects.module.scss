@@ -10,12 +10,12 @@
   padding: 5vw 10vw 0vw 10vw;
 
   .project__title {
+    border: 1px solid white;
+    padding: 1rem;
     span {
       font-family: $font-roboto;
       font-weight: 100;
       font-size: 3vw;
     }
-    border: 1px solid white;
-    padding: 1rem;
   }
 }
