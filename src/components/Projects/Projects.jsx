@@ -10,12 +10,13 @@ const projects = [
     name: "Events Flash Visual",
     image: "/public/efv.webp",
     description: "Photography website (Wedding, Sports and more...)",
+    stack: [{ name: "Typescript" }, { name: "Next.js" }, { name: "Node.js" },{ name: "Typescript" }, { name: "Next.js" }, { name: "Node.js" }],
   },
   {
     id: 2,
-    name: "Events Flash Visual 2",
+    name: "Actiively",
     image: "/public/efv.webp",
-    description: "Photography website (Wedding, Sports and more...)",
+    description: "Activities",
   },
   {
     id: 3,
@@ -58,6 +59,7 @@ const ProjectsCards = ({ setModal, setCard }) => {
                 name: project.name,
                 image: project.image,
                 description: project.description,
+                stack: project.stack,
               });
             }}
             initial={{ opacity: 0, y: -30 }}
@@ -66,7 +68,7 @@ const ProjectsCards = ({ setModal, setCard }) => {
             transition={{
               duration: 0.3,
               ease: "easeInOut",
-              delay: i * 0.3
+              delay: i * 0.3,
             }}
           >
             <img
@@ -87,21 +89,41 @@ const CardModal = ({ currentCard, setModal }) => {
     <motion.div
       className={`${styles.card__modal}`}
       onClick={() => setModal(false)}
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: 50, opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.2, ease: "easeInOut" }}
     >
-      <div
+      <motion.div
         className={`${styles.card__modal__center}`}
         onClick={(e) => e.stopPropagation()}
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 50, opacity: 0 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
       >
-        <h3>{currentCard.name}</h3>
-        <p>{currentCard.description}</p>
-      </div>
+        <div className={`${styles.modal__center__desc}`}>
+          <h3>{currentCard.name}</h3>
+          <p>{currentCard.description}</p>
+        </div>
+        <div className={`${styles.modal__center__tech}`}>
+          <h3>Tech stack</h3>
+          <ul className={`${styles.tech__list}`}>
+            {currentCard.stack.map((techno) => (
+              <li key={techno.id} className={`${styles.tech__list__item}`}>
+              <div className={`${styles.item__icon__container}`}>
+                <p>{techno.name}</p>
+              </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
+
+// ----------------------------- Render ------------------------------
 
 export default function Projects({ textEnter, textLeave }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
