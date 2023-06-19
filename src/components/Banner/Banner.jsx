@@ -40,9 +40,9 @@ export default function Banner() {
           src="/arrow.svg"
           alt="down arrow"
           className={`${styles.down__arrow}`}
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2, ease: "backOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, delay: 1.2, ease: "backOut" }}
         />
       </a>
     </section>

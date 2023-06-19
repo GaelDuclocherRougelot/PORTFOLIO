@@ -58,10 +58,17 @@ h3 {
   letter-spacing: -0.2rem;
 }
 
+p {
+  color: white;
+  font-family: $font-roboto;
+  font-weight: 200;
+  font-size: 0.8vw;
+}
+
 /* ----------------------- Custom cursor style ---------------------- */
 
 .cursor {
-  z-index: 100;
+  z-index: 1000;
   position: fixed;
   left: 0;
   top: 0;
@@ -69,7 +76,6 @@ h3 {
   height: 50px;
   border-radius: 50%;
   background-color: black;
-  mix-blend-mode: difference;
   background-color: #fff;
   filter: blur(1px);
   pointer-events: none;

@@ -28,12 +28,13 @@ function App() {
 
   const variants = {
     default: {
-      width: 50,
-      height: 50,
+      width: 30,
+      height: 30,
     },
     text: {
       width: 150,
       height: 150,
+      mixBlendMode: 'difference',
     },
   };
 

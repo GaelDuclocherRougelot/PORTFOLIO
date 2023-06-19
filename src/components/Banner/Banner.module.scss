@@ -13,9 +13,9 @@
   align-items: center;
   
   .profile__img {
-    z-index: 3;
+    // z-index: 3;
     width: 30vw;
-    border: 20px solid $color-javascript;
+    border: 1vw solid $color-javascript;
     border-radius: 50%;
     box-shadow: inset 0px 0px 30px $color-javascript, 0px 0px 20px $color-javascript;
   }
@@ -25,23 +25,22 @@
     position: absolute;
     bottom: 100px;
     z-index: 99;
+    animation: down 2s ease infinite backwards;
+  }
+
+  @keyframes down {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
   }
 
   .title__container {
     display: flex;
     flex-direction: column;
     width: 100%;
-
-    h1,
-    h2,
-    h3 {
-      color: white;
-      font-family: $font-raleway;
-      font-weight: 700;
-      font-size: 4vw;
-      line-height: 4vw;
-      letter-spacing: -0.2rem;
-    }
 
     h3 {
       font-size: 2vw;
@@ -51,6 +50,11 @@
       color: $color-javascript;
       text-shadow: 0px 0px 15px $color-javascript, 0px 0px 2px $color-javascript;
       transition: ease 0.5s;
+
+      &:hover {
+        color: $color-blue;
+        text-shadow: 0px 0px 15px $color-blue, 0px 0px 2px $color-blue;
+      }
     }
   }
 }
