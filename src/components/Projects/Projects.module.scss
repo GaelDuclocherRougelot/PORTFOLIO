@@ -24,18 +24,21 @@
     .project__card {
       width: 600px;
       margin: 2rem;
-
+      border: 1px solid white;
+      border-radius: 10px;
+      
       .project__image {
+        border-radius: 10px 10px 0px 0px;
         position: relative;
         width: 100%;
         aspect-ratio: 16/9;
-        margin-bottom: 1rem;
       }
 
       .project__name {
         font-size: 2vw;
         font-weight: 300;
         line-height: normal;
+        margin: 1rem;
       }
 
     }

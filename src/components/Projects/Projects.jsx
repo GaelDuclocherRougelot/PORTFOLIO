@@ -2,10 +2,27 @@
 import { useState } from "react";
 import CustomH2 from "../CustomH2/CustomH2";
 import styles from "./Projects.module.scss";
-import { motion } from "framer-motion";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
+  {
+    id: 1,
+    name: "Events Flash Visual",
+    image: "/public/efv.webp",
+    description: "Photography website (Wedding, Sports and more...)",
+  },
+  {
+    id: 2,
+    name: "Events Flash Visual 2",
+    image: "/public/efv.webp",
+    description: "Photography website (Wedding, Sports and more...)",
+  },
+  {
+    id: 3,
+    name: "Events Flash Visual 3",
+    image: "/public/efv.webp",
+    description: "Photography website (Wedding, Sports and more...)",
+  },
   {
     id: 1,
     name: "Events Flash Visual",
@@ -29,9 +46,9 @@ const projects = [
 const ProjectsCards = ({ setModal, setCard }) => {
   return (
     <ul className={`${styles.projects__cards}`}>
-      {projects.map((project) => {
+      {projects.map((project, i) => {
         return (
-          <li
+          <motion.li
             className={`${styles.project__card}`}
             key={project.id}
             onClick={() => {
@@ -43,6 +60,14 @@ const ProjectsCards = ({ setModal, setCard }) => {
                 description: project.description,
               });
             }}
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut",
+              delay: i * 0.3
+            }}
           >
             <img
               src={project.image}
@@ -50,8 +75,7 @@ const ProjectsCards = ({ setModal, setCard }) => {
               className={`${styles.project__image}`}
             />
             <h3 className={`${styles.project__name}`}>{project.name}</h3>
-            <p>{project.description}</p>
-          </li>
+          </motion.li>
         );
       })}
     </ul>
