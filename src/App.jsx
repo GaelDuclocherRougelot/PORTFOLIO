@@ -34,6 +34,12 @@ function App() {
     text: {
       width: 150,
       height: 150,
+      left: -75,
+      right: -75,
+      top: -75,
+      bottom: -75,
+      borderRadius: 0,
+      rotateZ: 45,
       mixBlendMode: 'difference',
     },
   };
@@ -52,7 +58,7 @@ function App() {
           translateY: cursorYSpring,
         }}
       />
-      <Banner />
+      <Banner textEnter={textEnter} textLeave={textLeave}/>
       <Projects textEnter={textEnter} textLeave={textLeave} />
     </>
   );

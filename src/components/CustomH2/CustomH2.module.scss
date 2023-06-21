@@ -1,8 +1,9 @@
-@import '../../Ui.module.scss';
+@import "../../Ui.module.scss";
 
 .h2 {
   border: 1px solid white;
   padding: 1rem;
+
   span {
     font-family: $font-roboto;
     font-weight: 100;

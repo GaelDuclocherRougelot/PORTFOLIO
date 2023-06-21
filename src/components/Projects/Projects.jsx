@@ -3,48 +3,31 @@ import { useState } from "react";
 import CustomH2 from "../CustomH2/CustomH2";
 import styles from "./Projects.module.scss";
 import { motion, AnimatePresence } from "framer-motion";
+import { efv, javascript, typescript } from "../../assets/index.js";
 
 const projects = [
   {
     id: 1,
     name: "Events Flash Visual",
-    image: "/public/efv.webp",
+    image: efv,
     description: "Photography website (Wedding, Sports and more...)",
-    stack: [{ name: "Typescript" }, { name: "Next.js" }, { name: "Node.js" },{ name: "Typescript" }, { name: "Next.js" }, { name: "Node.js" }],
+    stack: [
+      { icon: typescript, color: "#007ACC" },
+    ],
   },
   {
     id: 2,
     name: "Actiively",
-    image: "/public/efv.webp",
+    image: efv,
     description: "Activities",
-  },
-  {
-    id: 3,
-    name: "Events Flash Visual 3",
-    image: "/public/efv.webp",
-    description: "Photography website (Wedding, Sports and more...)",
-  },
-  {
-    id: 1,
-    name: "Events Flash Visual",
-    image: "/public/efv.webp",
-    description: "Photography website (Wedding, Sports and more...)",
-  },
-  {
-    id: 2,
-    name: "Events Flash Visual 2",
-    image: "/public/efv.webp",
-    description: "Photography website (Wedding, Sports and more...)",
-  },
-  {
-    id: 3,
-    name: "Events Flash Visual 3",
-    image: "/public/efv.webp",
-    description: "Photography website (Wedding, Sports and more...)",
+    stack: [
+      { icon: javascript, color: "#F0DB4F" },
+      { icon: typescript, color: "#007ACC" }
+    ],
   },
 ];
 
-const ProjectsCards = ({ setModal, setCard }) => {
+const ProjectsCards = ({ setModal, setCard, textEnter, textLeave }) => {
   return (
     <ul className={`${styles.projects__cards}`}>
       {projects.map((project, i) => {
@@ -52,6 +35,8 @@ const ProjectsCards = ({ setModal, setCard }) => {
           <motion.li
             className={`${styles.project__card}`}
             key={project.id}
+            onMouseEnter={() => textEnter()}
+            onMouseLeave={() => textLeave()}
             onClick={() => {
               setModal(true);
               setCard({
@@ -68,7 +53,7 @@ const ProjectsCards = ({ setModal, setCard }) => {
             transition={{
               duration: 0.3,
               ease: "easeInOut",
-              delay: i * 0.3,
+              delay: i * 0.4,
             }}
           >
             <img
@@ -111,9 +96,17 @@ const CardModal = ({ currentCard, setModal }) => {
           <ul className={`${styles.tech__list}`}>
             {currentCard.stack.map((techno) => (
               <li key={techno.id} className={`${styles.tech__list__item}`}>
-              <div className={`${styles.item__icon__container}`}>
-                <p>{techno.name}</p>
-              </div>
+                <div className={`${styles.item__icon__container}`} style={{
+                  border: `2px solid ${techno.color}`,
+                  borderColor: techno.color,
+                  boxShadow: `0px 0px 5px 0px ${techno.color}` 
+                }}>
+                  <img
+                    src={techno.icon}
+                    alt="techno icon"
+                    className={`${styles.item__icon}`}
+                  />
+                </div>
               </li>
             ))}
           </ul>
@@ -137,7 +130,12 @@ export default function Projects({ textEnter, textLeave }) {
         textEnter={textEnter}
         textLeave={textLeave}
       />
-      <ProjectsCards setModal={setModalIsOpen} setCard={setCurrentCard} />
+      <ProjectsCards
+        setModal={setModalIsOpen}
+        setCard={setCurrentCard}
+        textEnter={textEnter}
+        textLeave={textLeave}
+      />
       <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
         {modalIsOpen && (
           <CardModal currentCard={currentCard} setModal={setModalIsOpen} />

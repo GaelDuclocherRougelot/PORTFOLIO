@@ -64,14 +64,20 @@
       z-index: 101;
       width: 70%;
       height: 70%;
+      border-radius: 10px;
       background-color: #1a1a1a;
-      border-radius: 20px;
-      // box-shadow: 0px 0px 20px 0px $color-blue;
-      border: 10px solid whitesmoke;
       padding: 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      background: radial-gradient(circle at 100% 100%, #1a1a1a 0, #1a1a1a 6px, transparent 6px) 0% 0%/10px 10px no-repeat,
+            radial-gradient(circle at 0 100%, #1a1a1a 0, #1a1a1a 6px, transparent 6px) 100% 0%/10px 10px no-repeat,
+            radial-gradient(circle at 100% 0, #1a1a1a 0, #1a1a1a 6px, transparent 6px) 0% 100%/10px 10px no-repeat,
+            radial-gradient(circle at 0 0, #1a1a1a 0, #1a1a1a 6px, transparent 6px) 100% 100%/10px 10px no-repeat,
+            linear-gradient(#1a1a1a, #1a1a1a) 50% 50%/calc(100% - 8px) calc(100% - 20px) no-repeat,
+            linear-gradient(#1a1a1a, #1a1a1a) 50% 50%/calc(100% - 20px) calc(100% - 8px) no-repeat,
+            linear-gradient(90deg, $color-javascript 0%, $color-blue 100%);
 
       .modal__center__desc {
         display: flex;
@@ -113,9 +119,14 @@
             .item__icon__container {
               width: 150px;
               height: 150px;
-              border: 2px solid $color-javascript;
-              border-radius: 30px;
-              box-shadow: 0px 0px 5px 0px $color-javascript;
+              // border: 2px solid $color-javascript;
+              // border-radius: 30px;
+              // box-shadow: 0px 0px 5px 0px $color-javascript;
+
+              .item__icon {
+                border-radius: inherit;
+                object-fit: cover;
+              }
             }
           }
         }
