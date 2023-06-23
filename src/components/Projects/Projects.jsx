@@ -1,28 +1,87 @@
 /* eslint-disable react/prop-types */
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import {
+  aws,
+  efv,
+  express,
+  javascript,
+  next,
+  node,
+  postgres,
+  prisma,
+  react,
+  sass,
+  typescript,
+} from "../../assets/index.js";
 import CustomH2 from "../CustomH2/CustomH2";
 import styles from "./Projects.module.scss";
-import { motion, AnimatePresence } from "framer-motion";
-import { efv, javascript, typescript } from "../../assets/index.js";
 
 const projects = [
   {
     id: 1,
     name: "Events Flash Visual",
     image: efv,
-    description: "Photography website (Wedding, Sports and more...)",
+    url: "https://eventsflashvisual.fr/",
+    description: (
+      <>
+        <p>
+          Events photography website (Wedding, shootings, sports and more...)
+        </p>
+        <p>
+          The site contains a portfolio and a private gallery to view your
+          photos, for this you must enter a password that was given by the
+          photographer when creating the album. A search bar allows you to
+          quickly find your album.
+        </p>
+        <ul>
+          <p>- All the photos are stored into a AWS S3 Bucket.</p>
+          <p>- The admin have a dashboard for (Create, View, Update, Delete) albums & Photos.</p>
+          <p>- The sensitive data are hashed into the database via Bcrypt.</p>
+        </ul>
+      </>
+    ),
     stack: [
-      { icon: typescript, color: "#007ACC" },
+      { icon: typescript },
+      { icon: next },
+      { icon: node },
+      { icon: express },
+      { icon: postgres },
+      { icon: prisma },
+      { icon: aws },
+      { icon: sass },
     ],
   },
   {
     id: 2,
     name: "Actiively",
     image: efv,
-    description: "Activities",
+    description: (
+      <>
+        <p>Actiively is a centralized activity search platform.</p>
+        <p>The problematic:</p>
+        <p>
+          You want to find an activity, but you are lost, you do not know on
+          which website you will be able to find the activity of your dreams.
+          because there is no centralized platform and it can be long to find,
+          this is where Actiively comes in.
+        </p>
+        <p>The solution:</p>
+        <p>
+          The goal is to facilitate the search for an activity or organization.
+          With the search and filter system, you can easily and quickly find an
+          activity that suits you and highlight organizations that need
+          visibility.
+        </p>
+      </>
+    ),
     stack: [
-      { icon: javascript, color: "#F0DB4F" },
-      { icon: typescript, color: "#007ACC" }
+      { icon: javascript },
+      { icon: react },
+      { icon: node },
+      { icon: express },
+      { icon: postgres },
+      { icon: sass },
     ],
   },
 ];
@@ -43,6 +102,7 @@ const ProjectsCards = ({ setModal, setCard, textEnter, textLeave }) => {
                 id: project.id,
                 name: project.name,
                 image: project.image,
+                url: project.url,
                 description: project.description,
                 stack: project.stack,
               });
@@ -89,18 +149,18 @@ const CardModal = ({ currentCard, setModal }) => {
       >
         <div className={`${styles.modal__center__desc}`}>
           <h3>{currentCard.name}</h3>
-          <p>{currentCard.description}</p>
+          {currentCard.description}
+          <a href={currentCard.url} target="blank">
+            <p>{currentCard.url}</p>
+          </a>
         </div>
         <div className={`${styles.modal__center__tech}`}>
           <h3>Tech stack</h3>
+
           <ul className={`${styles.tech__list}`}>
             {currentCard.stack.map((techno) => (
               <li key={techno.id} className={`${styles.tech__list__item}`}>
-                <div className={`${styles.item__icon__container}`} style={{
-                  border: `2px solid ${techno.color}`,
-                  borderColor: techno.color,
-                  boxShadow: `0px 0px 5px 0px ${techno.color}` 
-                }}>
+                <div className={`${styles.item__icon__container}`}>
                   <img
                     src={techno.icon}
                     alt="techno icon"
