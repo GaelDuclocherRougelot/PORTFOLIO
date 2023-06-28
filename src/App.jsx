@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.module.scss";
 import Banner from "./components/Banner/Banner";
 import Projects from "./components/Projects/Projects";
+import About from "./components/About/About";
 
 function App() {
   const [cursorVariant, setCursorVariant] = useState("default");
@@ -60,6 +61,7 @@ function App() {
       />
       <Banner textEnter={textEnter} textLeave={textLeave}/>
       <Projects textEnter={textEnter} textLeave={textLeave} />
+      <About textEnter={textEnter} textLeave={textLeave}/>
     </>
   );
 }

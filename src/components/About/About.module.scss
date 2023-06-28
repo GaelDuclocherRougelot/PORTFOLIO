@@ -1,0 +1,24 @@
+.about__section {
+  position: relative;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  padding: 5vw 10vw 0vw 10vw;
+  overflow-y: hidden;
+  background-color: #1a1a1a;
+  color: white;
+
+  .me__container {
+    
+    .me__description {
+      position: relative;
+      z-index: 4;
+      margin-top: 4rem;
+      width: 50%;
+      p {
+        font-size: 1.5vw;
+      }
+    }
+  }
+
+}
