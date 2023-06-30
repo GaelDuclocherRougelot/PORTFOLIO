@@ -17,6 +17,8 @@ export default function Projects({ textEnter, textLeave }) {
         title="My Projects"
         textEnter={textEnter}
         textLeave={textLeave}
+        titleColor="#fff"
+        titleColorHover="#1a1a1a"
       />
       <ProjectsCards
         setModal={setModalIsOpen}

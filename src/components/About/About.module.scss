@@ -1,23 +1,43 @@
 .about__section {
   position: relative;
-  position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   width: 100vw;
   padding: 5vw 10vw 0vw 10vw;
   overflow-y: hidden;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: #edfa3f;
+  display: flex;
+  flex-direction: column;
 
+  .me__using__title {
+    align-self: center;
+    color: #1a1a1a;
+    margin-top: 4rem;
+  }
+  
   .me__container {
+    padding: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     
     .me__description {
       position: relative;
       z-index: 4;
-      margin-top: 4rem;
       width: 50%;
+      
+      
       p {
         font-size: 1.5vw;
+        margin: 1rem;
+        color: #1a1a1a;
       }
+    }
+
+    img {
+      max-width: 500px;
+      width: 50%;
+      border-radius: 30px;
     }
   }
 

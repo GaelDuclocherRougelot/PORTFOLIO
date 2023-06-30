@@ -2,7 +2,7 @@
 import efv from "./photos/efv.webp";
 import profile from "./photos/profile.png";
 import background from "./photos/portfolio_bg.webp";
-
+import actiively from "./photos/actiively.webp";
 // Technos
 import vite from "./technos/vite.svg";
 import javascript from "./technos/javascript.svg";
@@ -16,8 +16,9 @@ import express from "./technos/express.png"
 import react from "./technos/react.svg";
 import aws from "./technos/aws.svg";
 import sass from "./technos/sass.svg";
+import coding from "./photos/coding.webp";
 
 // UI elements
 import arrow from "./ui/arrow.svg";
 
-export { efv, profile, background, vite, arrow, javascript, typescript, prisma, pnpm, node, postgres, next, express, react, aws, sass};
+export { efv, profile, background, vite, arrow, javascript, typescript, prisma, pnpm, node, postgres, next, express, react, aws, sass, actiively, coding};

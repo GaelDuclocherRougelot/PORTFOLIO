@@ -15,6 +15,7 @@ import {
   react,
   sass,
   typescript,
+  actiively,
 } from "../../assets/index.js";
 
 // ---------------------------- Data ----------------------------
@@ -70,7 +71,7 @@ const projects = [
   {
     id: 2,
     name: "Actiively",
-    image: efv,
+    image: actiively,
     description: (
       <>
         <p>Actiively is a centralized activity search platform.</p>
